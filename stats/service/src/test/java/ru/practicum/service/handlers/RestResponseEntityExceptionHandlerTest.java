@@ -8,7 +8,9 @@ import org.springframework.validation.BindException;
 import org.springframework.validation.MapBindingResult;
 import ru.practicum.service.exceptions.NotValidDataException;
 
+import javax.validation.ConstraintViolationException;
 import java.util.HashMap;
+import java.util.HashSet;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
@@ -19,7 +21,7 @@ public class RestResponseEntityExceptionHandlerTest {
     private final int badRequest = 400;
 
     @Test
-    public void notFoundItemExceptionTest() throws JsonProcessingException {
+    public void notValidDataExceptionTest() throws JsonProcessingException {
         ResponseEntity<Object> response = handler.handleConflict(new NotValidDataException(""));
 
         assertNotNull(response);
@@ -27,8 +29,8 @@ public class RestResponseEntityExceptionHandlerTest {
     }
 
     @Test
-    public void notFoundUserExceptionTest() throws JsonProcessingException {
-        ResponseEntity<Object> response = handler.handleConflict(new BindException(new MapBindingResult(new HashMap<>(), "")));
+    public void constraintViolationExceptionTest() throws JsonProcessingException {
+        ResponseEntity<Object> response = handler.handleConflict(new ConstraintViolationException(new HashSet<>()));
 
         assertNotNull(response);
         assertEquals(response.getStatusCode().value(), badRequest);

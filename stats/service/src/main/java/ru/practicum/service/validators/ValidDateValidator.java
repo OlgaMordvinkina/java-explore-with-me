@@ -1,7 +1,7 @@
 package ru.practicum.service.validators;
 
+import ru.practicum.dto.UserRequestDto;
 import ru.practicum.service.exceptions.NotValidDataException;
-import ru.practicum.service.models.UserRequestDto;
 
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;

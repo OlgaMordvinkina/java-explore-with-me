@@ -52,9 +52,8 @@
         </dependency>
         <dependency>
             <groupId>ru.practicum</groupId>
-            <artifactId>model</artifactId>
+            <artifactId>dto</artifactId>
             <version>0.0.1-SNAPSHOT</version>
-            <scope>compile</scope>
         </dependency>
     </dependencies>
 

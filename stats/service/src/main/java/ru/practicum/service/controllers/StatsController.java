@@ -7,10 +7,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
-import ru.practicum.model.StatDto;
-import ru.practicum.model.VisitDto;
-import ru.practicum.service.models.UserRequestDto;
+import ru.practicum.dto.StatDto;
+import ru.practicum.dto.VisitDto;
+import ru.practicum.dto.UserRequestDto;
 import ru.practicum.service.services.StatsService;
+import ru.practicum.service.validators.ValidDateConstraint;
 
 import javax.validation.Valid;
 import java.util.List;
@@ -29,7 +30,7 @@ public class StatsController {
     }
 
     @GetMapping("/stats")
-    public List<StatDto> getStats(@Valid UserRequestDto request) {
+    public List<StatDto> getStats(@Valid @ValidDateConstraint UserRequestDto request) {
         List<StatDto> stats = service.getStats(request);
         log.info("Получен запрос GET /stats");
         return stats;

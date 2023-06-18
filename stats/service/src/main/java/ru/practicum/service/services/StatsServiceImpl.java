@@ -4,10 +4,10 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import ru.practicum.model.StatDto;
-import ru.practicum.model.VisitDto;
+import ru.practicum.dto.StatDto;
+import ru.practicum.dto.VisitDto;
 import ru.practicum.service.models.StatMapper;
-import ru.practicum.service.models.UserRequestDto;
+import ru.practicum.dto.UserRequestDto;
 import ru.practicum.service.repositories.StatsRepository;
 
 import java.util.List;

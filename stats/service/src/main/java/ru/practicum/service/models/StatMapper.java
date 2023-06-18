@@ -1,6 +1,6 @@
 package ru.practicum.service.models;
 
-import ru.practicum.model.VisitDto;
+import ru.practicum.dto.VisitDto;
 
 public class StatMapper {
     public static Stat toStat(VisitDto visitDto) {

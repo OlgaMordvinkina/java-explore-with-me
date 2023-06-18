@@ -1,7 +1,7 @@
 package ru.practicum.service.mapper;
 
 import org.junit.jupiter.api.Test;
-import ru.practicum.model.VisitDto;
+import ru.practicum.dto.VisitDto;
 import ru.practicum.service.models.Stat;
 import ru.practicum.service.models.StatMapper;
 

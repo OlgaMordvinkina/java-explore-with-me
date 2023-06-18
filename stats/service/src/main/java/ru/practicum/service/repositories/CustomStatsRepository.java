@@ -1,7 +1,7 @@
 package ru.practicum.service.repositories;
 
-import ru.practicum.model.StatDto;
-import ru.practicum.service.models.UserRequestDto;
+import ru.practicum.dto.StatDto;
+import ru.practicum.dto.UserRequestDto;
 
 import java.util.List;
 

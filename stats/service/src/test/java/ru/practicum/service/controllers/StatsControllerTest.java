@@ -8,8 +8,8 @@ import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
-import ru.practicum.model.StatDto;
-import ru.practicum.model.VisitDto;
+import ru.practicum.dto.StatDto;
+import ru.practicum.dto.VisitDto;
 import ru.practicum.service.services.StatsService;
 
 import java.time.LocalDateTime;

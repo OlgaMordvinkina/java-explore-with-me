@@ -6,13 +6,13 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.validation.BindException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import ru.practicum.service.exceptions.NotValidDataException;
 import ru.practicum.service.exceptions.model.ErrorResponse;
 import ru.practicum.service.exceptions.model.ErrorsDescription;
 
+import javax.validation.ConstraintViolationException;
 import java.util.List;
 
 @RestControllerAdvice
@@ -20,13 +20,14 @@ import java.util.List;
 public class RestResponseEntityExceptionHandler {
     private final ObjectMapper objectMapper;
 
-    @ExceptionHandler(BindException.class)
-    protected ResponseEntity<Object> handleConflict(BindException ex) throws JsonProcessingException {
+    @ExceptionHandler(ConstraintViolationException.class)
+    protected ResponseEntity<Object> handleConflict(ConstraintViolationException ex) throws JsonProcessingException {
         ErrorResponse response = ErrorResponse.builder()
                 .code(HttpStatus.BAD_REQUEST.value())
                 .errors(
                         List.of(ErrorsDescription.builder()
-                                .message((ex.getAllErrors().size() != 0 ? ex.getAllErrors().get(0).getDefaultMessage() : null))
+                                .fieldName("start")
+                                .message((ex.getMessage()))
                                 .build())
                 ).build();
 

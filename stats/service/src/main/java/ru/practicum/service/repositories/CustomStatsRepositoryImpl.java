@@ -2,9 +2,9 @@ package ru.practicum.service.repositories;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
-import ru.practicum.model.StatDto;
+import ru.practicum.dto.StatDto;
 import ru.practicum.service.models.Stat;
-import ru.practicum.service.models.UserRequestDto;
+import ru.practicum.dto.UserRequestDto;
 
 import javax.persistence.EntityManager;
 import javax.persistence.criteria.CriteriaBuilder;
