@@ -68,7 +68,8 @@ public class CompilationAdminControllerTest {
                 .andExpect(jsonPath("$.id").isNumber())
                 .andExpect(jsonPath("$.title").value(title))
                 .andExpect(jsonPath("$.pinned").isBoolean())
-                .andExpect(jsonPath("$.events").isNotEmpty());    }
+                .andExpect(jsonPath("$.events").isNotEmpty());
+    }
 
     @Test
     void updateCompilationTitleIsEmpty_returnBadRequest_Test() throws Exception {
