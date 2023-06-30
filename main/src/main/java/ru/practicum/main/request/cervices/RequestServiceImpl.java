@@ -5,11 +5,11 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import ru.practicum.main.event.enums.State;
-import ru.practicum.main.exceptions.LimitException;
 import ru.practicum.main.event.exceptions.NotFoundEventException;
 import ru.practicum.main.event.models.Event;
 import ru.practicum.main.event.repositories.EventRepository;
 import ru.practicum.main.exceptions.AccessException;
+import ru.practicum.main.exceptions.LimitException;
 import ru.practicum.main.exceptions.NotAvailableException;
 import ru.practicum.main.request.dto.ParticipationRequestDto;
 import ru.practicum.main.request.enums.StateParticipation;
@@ -62,7 +62,7 @@ public class RequestServiceImpl implements RequestService {
         }
 
         Long confirmedRequest = requestRepository.getConfirmedRequest(eventId);
-        if (confirmedRequest+1 == event.getParticipantLimit()) {
+        if (confirmedRequest + 1 == event.getParticipantLimit()) {
             throw new LimitException();
         }
 
@@ -71,8 +71,8 @@ public class RequestServiceImpl implements RequestService {
                 .event(event)
                 .status((
                         !event.isRequestModeration() || event.getParticipantLimit() == 0
-                        ? StateParticipation.CONFIRMED
-                        : StateParticipation.PENDING)
+                                ? StateParticipation.CONFIRMED
+                                : StateParticipation.PENDING)
                 )
                 .created(getLocalDate())
                 .build();

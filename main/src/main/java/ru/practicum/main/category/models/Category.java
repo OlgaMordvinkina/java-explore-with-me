@@ -3,7 +3,6 @@ package ru.practicum.main.category.models;
 import lombok.*;
 
 import javax.persistence.*;
-import java.time.LocalDateTime;
 
 @Setter
 @Getter

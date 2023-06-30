@@ -6,7 +6,6 @@ import org.springframework.stereotype.Repository;
 import ru.practicum.main.request.models.Request;
 
 import java.util.List;
-import java.util.Map;
 
 @Repository
 public interface RequestRepository extends JpaRepository<Request, Long> {
