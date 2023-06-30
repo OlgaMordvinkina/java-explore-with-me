@@ -1,6 +1,5 @@
 package ru.practicum.main.handlers.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
 @AllArgsConstructor
@@ -13,6 +12,4 @@ public class ApiError {
     private String reason;
     private String message;
     private String timestamp;
-    @JsonIgnore
-    private String errors;
 }

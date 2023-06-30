@@ -62,7 +62,8 @@ public class RequestServiceImpl implements RequestService {
         }
 
         Long confirmedRequest = requestRepository.getConfirmedRequest(eventId);
-        if (confirmedRequest + 1 == event.getParticipantLimit()) {
+
+        if (event.getParticipantLimit() != 0 && confirmedRequest == event.getParticipantLimit()) {
             throw new LimitException();
         }
 
