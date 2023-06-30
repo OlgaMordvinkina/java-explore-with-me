@@ -23,6 +23,7 @@ import ru.practicum.main.event.models.Location;
 import ru.practicum.main.event.repositories.EventRepository;
 import ru.practicum.main.event.repositories.LocationRepository;
 import ru.practicum.main.exceptions.AccessException;
+import ru.practicum.main.exceptions.LimitException;
 import ru.practicum.main.exceptions.NotAvailableException;
 import ru.practicum.main.request.dto.ParticipationRequestDto;
 import ru.practicum.main.request.enums.StateParticipation;
@@ -134,14 +135,25 @@ public class EventServiceImpl implements EventService {
         Long confirmedRequest = requestRepository.getConfirmedRequest(eventId);
 
         if (event.getParticipantLimit() != 0) {
-            for (Request obj : requests) {
-                if (request.getStatus().equals(StateParticipation.REJECTED) ||
-                        event.getParticipantLimit() == confirmedRequest
-                        || !obj.getStatus().equals(StateParticipation.PENDING)) {
-                    obj.setStatus(StateParticipation.REJECTED);
-                    rejected.add(RequestMapper.toRequestDto(obj));
-                    requestRepository.save(obj);
-                    break;
+            for (int i = 0; i < requests.size(); i++) {
+                Request obj = requests.get(i);
+
+                if (!obj.getStatus().equals(StateParticipation.PENDING)) {
+                    throw new NotAvailableException();
+                }
+
+                if (request.getStatus().equals(StateParticipation.REJECTED) && event.getParticipantLimit() != confirmedRequest) {
+                    saveRejectedRequest(obj, rejected);
+                }
+
+                if (event.getParticipantLimit() == confirmedRequest) {
+                    saveRejectedRequest(obj, rejected);
+
+                    if (i == requests.size() - 1) {
+                        throw new LimitException();
+                    }
+
+                    continue;
                 }
 
                 obj.setStatus(request.getStatus());
@@ -351,5 +363,11 @@ public class EventServiceImpl implements EventService {
     private LocalDateTime getLocalDate() {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
         return LocalDateTime.parse(LocalDateTime.now().format(formatter), formatter);
+    }
+
+    private void saveRejectedRequest(Request obj, List<ParticipationRequestDto> rejected) {
+        obj.setStatus(StateParticipation.REJECTED);
+        rejected.add(RequestMapper.toRequestDto(obj));
+        requestRepository.save(obj);
     }
 }

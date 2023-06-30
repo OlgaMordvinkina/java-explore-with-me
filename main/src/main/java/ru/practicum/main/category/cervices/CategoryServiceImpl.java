@@ -11,6 +11,9 @@ import ru.practicum.main.category.exceptions.NotFoundCategoryException;
 import ru.practicum.main.category.mapper.CategoryMapper;
 import ru.practicum.main.category.models.Category;
 import ru.practicum.main.category.repositories.CategoryRepository;
+import ru.practicum.main.event.models.Event;
+import ru.practicum.main.event.repositories.EventRepository;
+import ru.practicum.main.exceptions.NotAvailableException;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -20,19 +23,24 @@ import java.util.stream.Collectors;
 @Transactional
 @RequiredArgsConstructor
 public class CategoryServiceImpl implements CategoryService {
-    private final CategoryRepository repository;
+    private final CategoryRepository categoryRepository;
+    private final EventRepository eventRepository;
 
     @Override
     public CategoryDto addCategory(NewCategoryDto newCategory) {
         log.info("Добавлена Category: {}", newCategory);
-        return CategoryMapper.toCategoryDto(repository.save(CategoryMapper.toCategory(newCategory)));
+        return CategoryMapper.toCategoryDto(categoryRepository.save(CategoryMapper.toCategory(newCategory)));
     }
 
     @Override
     public void deleteCategory(Long catId) {
         Category category = existById(catId);
+        List<Event> events = eventRepository.findAllByCategoryId(catId);
+        if (!events.isEmpty()) {
+            throw new NotAvailableException();
+        }
         log.info("Удалена Category: {}", category);
-        repository.deleteById(catId);
+        categoryRepository.deleteById(catId);
     }
 
     @Override
@@ -40,14 +48,14 @@ public class CategoryServiceImpl implements CategoryService {
         Category category = existById(catId);
         category.setName(categoryDto.getName());
         log.info("Обновлена Category: {}", category);
-        Category save = repository.save(category);
+        Category save = categoryRepository.save(category);
         return CategoryMapper.toCategoryDto(save);
     }
 
     @Transactional(readOnly = true)
     @Override
     public List<CategoryDto> getCategories(int from, int size) {
-        List<CategoryDto> categories = repository.findAll(PageRequest.of(from / size, size)).stream()
+        List<CategoryDto> categories = categoryRepository.findAll(PageRequest.of(from / size, size)).stream()
                 .map(CategoryMapper::toCategoryDto)
                 .collect(Collectors.toList());
         log.info("Получены Categories: {}", categories);
@@ -63,6 +71,6 @@ public class CategoryServiceImpl implements CategoryService {
     }
 
     private Category existById(Long catId) {
-        return repository.findById(catId).orElseThrow(() -> new NotFoundCategoryException(catId));
+        return categoryRepository.findById(catId).orElseThrow(() -> new NotFoundCategoryException(catId));
     }
 }

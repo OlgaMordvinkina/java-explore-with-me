@@ -7,7 +7,11 @@ import org.springframework.stereotype.Repository;
 import ru.practicum.main.event.models.Event;
 import ru.practicum.main.user.models.User;
 
+import java.util.List;
+
 @Repository
 public interface EventRepository extends JpaRepository<Event, Long>, CustomEventRepository {
     Page<Event> findAllByInitiator(User user, Pageable pageable);
+
+    List<Event> findAllByCategoryId(Long catId);
 }
