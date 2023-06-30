@@ -1,7 +1,9 @@
 package ru.practicum.main.event.dto;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import ru.practicum.main.event.models.Location;
 import ru.practicum.main.event.validators.ValidDateConstraint;
 

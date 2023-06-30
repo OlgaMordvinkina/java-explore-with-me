@@ -10,7 +10,6 @@ import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 import ru.practicum.main.category.cervices.CategoryService;
 import ru.practicum.main.category.dto.CategoryDto;
-import ru.practicum.main.category.dto.NewCategoryDto;
 
 import java.util.Collections;
 import java.util.List;

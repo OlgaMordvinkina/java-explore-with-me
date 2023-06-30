@@ -1,7 +1,7 @@
 package ru.practicum.main.request.cervices;
 
 import org.springframework.expression.AccessException;
-import ru.practicum.main.request.dto.*;
+import ru.practicum.main.request.dto.ParticipationRequestDto;
 
 import java.util.List;
 

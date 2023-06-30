@@ -18,8 +18,8 @@ public class CompilationMapper {
                 compilation.isPinned(),
                 compilation.getEvents() != null ?
                         compilation.getEvents().stream()
-                        .map(EventMapper::toEventShortDto)
-                        .collect(Collectors.toList()) :
+                                .map(EventMapper::toEventShortDto)
+                                .collect(Collectors.toList()) :
                         List.of()
         );
     }

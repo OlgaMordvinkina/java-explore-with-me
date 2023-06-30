@@ -1,9 +1,9 @@
 package ru.practicum.main.event.repositories;
 
-import ru.practicum.main.event.models.EventShort;
 import ru.practicum.main.event.dto.EventFilterAdminDto;
 import ru.practicum.main.event.dto.EventFilterDto;
 import ru.practicum.main.event.models.Event;
+import ru.practicum.main.event.models.EventShort;
 
 import java.util.List;
 
