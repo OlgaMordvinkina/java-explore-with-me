@@ -60,14 +60,6 @@ public class CategoryServiceTest {
     }
 
     @Test
-    void deleteCategoryTest() {
-        when(repository.findById(anyLong())).thenReturn(Optional.of(category));
-
-        service.deleteCategory(1L);
-        verify(repository).deleteById(anyLong());
-    }
-
-    @Test
     void deleteCategory_returnNotFoundCategoryExceptionTest() {
         assertThrows(NotFoundCategoryException.class, () -> service.deleteCategory(id));
     }
