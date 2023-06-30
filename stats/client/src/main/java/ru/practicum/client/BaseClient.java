@@ -19,7 +19,7 @@ public class BaseClient {
         return makeAndSendRequest(HttpMethod.GET, path, parameters, null);
     }
 
-    protected <T> void post(String path, T body) {
+     protected <T> void post(String path, T body) {
         makeAndSendRequest(HttpMethod.POST, path, null, body);
     }
 
