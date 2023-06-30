@@ -39,7 +39,7 @@ public class StatsControllerTest {
         mvc.perform(post("/hit")
                         .content(mapper.writeValueAsString(visit))
                         .contentType(MediaType.APPLICATION_JSON))
-                .andExpect(status().isOk());
+                .andExpect(status().isCreated());
     }
 
     @Test
