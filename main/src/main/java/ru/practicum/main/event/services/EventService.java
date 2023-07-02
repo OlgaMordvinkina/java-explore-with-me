@@ -1,4 +1,4 @@
-package ru.practicum.main.event.cervices;
+package ru.practicum.main.event.services;
 
 import ru.practicum.main.event.dto.*;
 import ru.practicum.main.request.dto.ParticipationRequestDto;

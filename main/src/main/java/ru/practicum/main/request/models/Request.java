@@ -26,8 +26,10 @@ public class Request {
     @ManyToOne
     @JoinColumn(name = "event_id", referencedColumnName = "id")
     private Event event;
+    @Column(nullable = false)
     @Enumerated(EnumType.STRING)
     private StateParticipation status;
+    @Column(nullable = false)
     private LocalDateTime created;
 }
 

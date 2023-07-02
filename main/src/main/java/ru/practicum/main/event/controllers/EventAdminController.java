@@ -3,10 +3,10 @@ package ru.practicum.main.event.controllers;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
-import ru.practicum.main.event.cervices.EventService;
 import ru.practicum.main.event.dto.EventFilterAdminDto;
 import ru.practicum.main.event.dto.EventFullDto;
 import ru.practicum.main.event.dto.UpdateEventAdminRequest;
+import ru.practicum.main.event.services.EventService;
 
 import javax.validation.Valid;
 import java.util.List;

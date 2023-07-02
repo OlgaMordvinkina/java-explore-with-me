@@ -6,10 +6,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import ru.practicum.main.event.cervices.EventService;
 import ru.practicum.main.event.dto.EventFilterDto;
 import ru.practicum.main.event.dto.EventFullDto;
 import ru.practicum.main.event.dto.EventShortDto;
+import ru.practicum.main.event.services.EventService;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;

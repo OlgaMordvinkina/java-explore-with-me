@@ -3,6 +3,7 @@ package ru.practicum.main.compilation.dto;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.lang.Nullable;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
@@ -16,5 +17,6 @@ public class NewCompilationDto {
     @NotBlank
     private String title;
     private boolean pinned;
+    @Nullable
     private List<Long> events;
 }

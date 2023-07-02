@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 import ru.practicum.main.event.models.Location;
 import ru.practicum.main.event.validators.ValidDateConstraint;
 
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.time.LocalDateTime;
@@ -16,10 +17,10 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @AllArgsConstructor
 public class NewEventDto {
-    @NotNull
+    @NotBlank
     @Size(min = 3, max = 120)
     private String title;
-    @NotNull
+    @NotBlank
     @Size(min = 20, max = 2000)
     private String annotation;
     @NotNull
@@ -29,7 +30,7 @@ public class NewEventDto {
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     @ValidDateConstraint
     private LocalDateTime eventDate;
-    @NotNull
+    @NotBlank
     @Size(min = 20, max = 7000)
     private String description;
     private int participantLimit = 0;

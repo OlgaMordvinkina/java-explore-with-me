@@ -27,10 +27,10 @@ public class UserServiceImpl implements UserService {
     public List<UserDto> getUsers(List<Long> ids, int from, int size) {
         if (ids == null) {
             List<UserDto> users = repository.findAll(PageRequest.of(from / size, size)).stream()
-                .map(UserMapper::toUserDto)
-                .collect(Collectors.toList());
-        log.info("Получены Users: {}", users);
-        return users;
+                    .map(UserMapper::toUserDto)
+                    .collect(Collectors.toList());
+            log.info("Получены Users: {}", users);
+            return users;
         }
         List<UserDto> users = repository.findAllByIdIn(ids, PageRequest.of(from / size, size)).stream()
                 .map(UserMapper::toUserDto)

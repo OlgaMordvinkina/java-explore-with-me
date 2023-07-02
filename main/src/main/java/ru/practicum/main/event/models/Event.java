@@ -35,29 +35,34 @@ public class Event {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Column(nullable = false)
     private String title;
+    @Column(nullable = false)
     private String annotation;
     @ManyToOne
     @JoinColumn(name = "category_id", referencedColumnName = "id")
     private Category category;
-    boolean paid;
-    @Column(name = "event_date")
+    @Column(nullable = false)
+    private boolean paid;
+    @Column(name = "event_date", nullable = false)
     private LocalDateTime eventDate;
     @ManyToOne
     @JoinColumn(name = "user_id", referencedColumnName = "id")
     private User initiator;
+    @Column(nullable = false)
     private String description;
-    @Column(name = "participant_limit")
+    @Column(name = "participant_limit", nullable = false)
     private int participantLimit;
-    @Column(name = "created_on")
+    @Column(name = "created_on", nullable = false)
     private LocalDateTime createdOn;
     @ManyToOne
     @JoinColumn(name = "location_id", referencedColumnName = "id")
     private Location location;
-    @Column(name = "request_moderation")
+    @Column(name = "request_moderation", nullable = false)
     private boolean requestModeration;
     @Column(name = "published_on")
     private LocalDateTime publishedOn;
     @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
     private State state;
 }
