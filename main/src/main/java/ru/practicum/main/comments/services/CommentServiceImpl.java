@@ -102,7 +102,7 @@ public class CommentServiceImpl implements CommentService {
     @Override
     public List<CommentDto> getCommentsByUserId(Long eventId, Long userId) {
         existEventById(eventId);
-        List<Comment> comment = commentRepository.findAllByAuthorId(eventId);
+        List<Comment> comment = commentRepository.findAllByEventIdAndAuthorId(eventId, userId);
 
         List<CommentDto> comments = comment.stream()
                 .map(CommentMapper::toCommentDto)

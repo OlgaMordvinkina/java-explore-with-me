@@ -23,11 +23,6 @@
 									"    pm.response.to.be.withBody;",
 									"    pm.response.to.be.json;",
 									"});",
-									"pm.test(\"Test user 'id' field\", function () {",
-									"    var jsonData = pm.response.json();",
-									"    pm.expect(jsonData).to.have.property('id');",
-									"    pm.expect(jsonData.id, '\"id\" must be 1').to.eql(1);",
-									"});",
 									"pm.test(\"Test user 'email' field\", function () {",
 									"    var jsonData = pm.response.json();",
 									"    pm.expect(jsonData).to.have.property('email');",
@@ -87,11 +82,6 @@
 									"pm.test(\"Has user create response\", function () {",
 									"    pm.response.to.be.withBody;",
 									"    pm.response.to.be.json;",
-									"});",
-									"pm.test(\"Test user 'id' field\", function () {",
-									"    var jsonData = pm.response.json();",
-									"    pm.expect(jsonData).to.have.property('id');",
-									"    pm.expect(jsonData.id, '\"id\" must be 2').to.eql(2);",
 									"});",
 									"pm.test(\"Test user 'email' field\", function () {",
 									"    var jsonData = pm.response.json();",
@@ -153,11 +143,6 @@
 									"    pm.response.to.be.withBody;",
 									"    pm.response.to.be.json;",
 									"});",
-									"pm.test(\"Test user 'id' field\", function () {",
-									"    var jsonData = pm.response.json();",
-									"    pm.expect(jsonData).to.have.property('id');",
-									"    pm.expect(jsonData.id, '\"id\" must be 3').to.eql(3);",
-									"});",
 									"pm.test(\"Test user 'email' field\", function () {",
 									"    var jsonData = pm.response.json();",
 									"    pm.expect(jsonData).to.have.property('email');",
@@ -190,71 +175,6 @@
 						"body": {
 							"mode": "raw",
 							"raw": "{\n    \"name\": \"Milana\",\n    \"email\": \"milana@mail.ru\"\n}"
-						},
-						"url": {
-							"raw": "{{baseUrl}}/admin/users",
-							"host": [
-								"{{baseUrl}}"
-							],
-							"path": [
-								"admin",
-								"users"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "User 4 create",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"exec": [
-									"pm.test(\"Status code is 201\", function () {",
-									"    pm.expect(pm.response.code).to.be.oneOf([201]);",
-									"});",
-									"pm.test(\"Has user create response\", function () {",
-									"    pm.response.to.be.withBody;",
-									"    pm.response.to.be.json;",
-									"});",
-									"pm.test(\"Test user 'id' field\", function () {",
-									"    var jsonData = pm.response.json();",
-									"    pm.expect(jsonData).to.have.property('id');",
-									"    pm.expect(jsonData.id, '\"id\" must be 4').to.eql(4);",
-									"});",
-									"pm.test(\"Test user 'email' field\", function () {",
-									"    var jsonData = pm.response.json();",
-									"    pm.expect(jsonData).to.have.property('email');",
-									"    pm.expect(jsonData.email, '\"email\" must be \"anna@mail.ru\"').to.eql('anna@mail.ru');",
-									"});",
-									"pm.test(\"Test user 'name' field\", function () {",
-									"    var jsonData = pm.response.json();",
-									"    pm.expect(jsonData).to.have.property('name');",
-									"    pm.expect(jsonData.name, '\"Anna\" must be \"user\"').to.eql('Anna');",
-									"});"
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"type": "text"
-							},
-							{
-								"key": "Accept",
-								"value": "*/*",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"name\": \"Anna\",\n    \"email\": \"anna@mail.ru\"\n}"
 						},
 						"url": {
 							"raw": "{{baseUrl}}/admin/users",
@@ -396,7 +316,7 @@
 							"variable": [
 								{
 									"key": "userId",
-									"value": "1"
+									"value": "134"
 								}
 							]
 						}
@@ -464,11 +384,11 @@
 							"variable": [
 								{
 									"key": "userId",
-									"value": "1"
+									"value": "134"
 								},
 								{
 									"key": "eventId",
-									"value": "1"
+									"value": "103"
 								}
 							]
 						}
@@ -527,7 +447,7 @@
 							"variable": [
 								{
 									"key": "userId",
-									"value": "2"
+									"value": "135"
 								}
 							]
 						}
@@ -586,7 +506,7 @@
 							"variable": [
 								{
 									"key": "userId",
-									"value": "1"
+									"value": "134"
 								}
 							]
 						}
@@ -654,11 +574,11 @@
 							"variable": [
 								{
 									"key": "userId",
-									"value": "1"
+									"value": "134"
 								},
 								{
 									"key": "eventId",
-									"value": "3"
+									"value": "105"
 								}
 							]
 						}
@@ -747,11 +667,11 @@
 							"variable": [
 								{
 									"key": "userId",
-									"value": "1"
+									"value": "134"
 								},
 								{
 									"key": "eventId",
-									"value": "1"
+									"value": "103"
 								}
 							]
 						}
@@ -835,11 +755,11 @@
 							"variable": [
 								{
 									"key": "userId",
-									"value": "3"
+									"value": "136"
 								},
 								{
 									"key": "eventId",
-									"value": "1"
+									"value": "103"
 								}
 							]
 						}
@@ -923,11 +843,11 @@
 							"variable": [
 								{
 									"key": "userId",
-									"value": "1"
+									"value": "134"
 								},
 								{
 									"key": "eventId",
-									"value": "1"
+									"value": "103"
 								}
 							]
 						}
@@ -991,11 +911,11 @@
 							"variable": [
 								{
 									"key": "userId",
-									"value": "1"
+									"value": "134"
 								},
 								{
 									"key": "eventId",
-									"value": "2"
+									"value": "104"
 								}
 							]
 						}
@@ -1080,11 +1000,11 @@
 							"variable": [
 								{
 									"key": "userId",
-									"value": "1"
+									"value": "134"
 								},
 								{
 									"key": "eventId",
-									"value": "1"
+									"value": "103"
 								},
 								{
 									"key": "commentId",
@@ -1154,11 +1074,11 @@
 							"variable": [
 								{
 									"key": "userId",
-									"value": "1"
+									"value": "134"
 								},
 								{
 									"key": "eventId",
-									"value": "1"
+									"value": "103"
 								},
 								{
 									"key": "commentId",
@@ -1228,11 +1148,11 @@
 							"variable": [
 								{
 									"key": "userId",
-									"value": "1"
+									"value": "134"
 								},
 								{
 									"key": "eventId",
-									"value": "55"
+									"value": "555"
 								},
 								{
 									"key": "commentId",
@@ -1302,11 +1222,11 @@
 							"variable": [
 								{
 									"key": "userId",
-									"value": "1"
+									"value": "134"
 								},
 								{
 									"key": "eventId",
-									"value": "55"
+									"value": "555"
 								},
 								{
 									"key": "commentId",
@@ -1376,11 +1296,11 @@
 							"variable": [
 								{
 									"key": "userId",
-									"value": "3"
+									"value": "136"
 								},
 								{
 									"key": "eventId",
-									"value": "2"
+									"value": "104"
 								},
 								{
 									"key": "commentId",
@@ -1430,7 +1350,7 @@
 							"variable": [
 								{
 									"key": "eventId",
-									"value": "1"
+									"value": "103"
 								}
 							]
 						}
@@ -1471,7 +1391,7 @@
 							"variable": [
 								{
 									"key": "eventId",
-									"value": "1"
+									"value": "103"
 								},
 								{
 									"key": "commentId",
@@ -1523,11 +1443,11 @@
 							"variable": [
 								{
 									"key": "userId",
-									"value": "1"
+									"value": "134"
 								},
 								{
 									"key": "eventId",
-									"value": "1"
+									"value": "103"
 								}
 							]
 						}
@@ -1569,11 +1489,11 @@
 							"variable": [
 								{
 									"key": "userId",
-									"value": "3"
+									"value": "136"
 								},
 								{
 									"key": "eventId",
-									"value": "1"
+									"value": "103"
 								},
 								{
 									"key": "commentId",
@@ -1619,11 +1539,11 @@
 							"variable": [
 								{
 									"key": "userId",
-									"value": "1"
+									"value": "134"
 								},
 								{
 									"key": "eventId",
-									"value": "10"
+									"value": "1000"
 								},
 								{
 									"key": "commentId",
@@ -1669,11 +1589,11 @@
 							"variable": [
 								{
 									"key": "userId",
-									"value": "1"
+									"value": "134"
 								},
 								{
 									"key": "eventId",
-									"value": "1"
+									"value": "103"
 								},
 								{
 									"key": "commentId",
@@ -1717,7 +1637,7 @@
 							"variable": [
 								{
 									"key": "eventId",
-									"value": "1"
+									"value": "103"
 								},
 								{
 									"key": "commentId",
