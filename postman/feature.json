@@ -192,76 +192,6 @@
 			]
 		},
 		{
-			"name": "category",
-			"item": [
-				{
-					"name": "Category 1 create",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"exec": [
-									"pm.test(\"Status code is 201\", function () {",
-									"    pm.expect(pm.response.code).to.be.oneOf([201]);",
-									"});",
-									"pm.test(\"Has item create response\", function () {",
-									"    pm.response.to.be.withBody;",
-									"    pm.response.to.be.json;",
-									"});",
-									"pm.test(\"Test item 'id' field\", function () {",
-									"    var jsonData = pm.response.json();",
-									"    pm.expect(jsonData).to.have.property('id');",
-									"    pm.expect(jsonData.id, '\"id\" must be 1').to.eql(1);",
-									"});",
-									"pm.test(\"Test item 'name' field\", function () {",
-									"    var jsonData = pm.response.json();",
-									"    pm.expect(jsonData).to.have.property('name');",
-									"    pm.expect(jsonData.name, '\"name\" must be \"Прогулка\"').to.eql('Прогулка');",
-									"});"
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "X-Sharer-User-Id",
-								"value": "1",
-								"type": "text"
-							},
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"type": "text"
-							},
-							{
-								"key": "Accept",
-								"value": "*/*",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"name\": \"Прогулка\"\n}"
-						},
-						"url": {
-							"raw": "{{baseUrl}}/admin/categories",
-							"host": [
-								"{{baseUrl}}"
-							],
-							"path": [
-								"admin",
-								"categories"
-							]
-						}
-					},
-					"response": []
-				}
-			]
-		},
-		{
 			"name": "events",
 			"item": [
 				{
@@ -316,7 +246,7 @@
 							"variable": [
 								{
 									"key": "userId",
-									"value": "134"
+									"value": "136"
 								}
 							]
 						}
@@ -384,11 +314,11 @@
 							"variable": [
 								{
 									"key": "userId",
-									"value": "134"
+									"value": "136"
 								},
 								{
 									"key": "eventId",
-									"value": "103"
+									"value": "106"
 								}
 							]
 						}
@@ -447,7 +377,7 @@
 							"variable": [
 								{
 									"key": "userId",
-									"value": "135"
+									"value": "137"
 								}
 							]
 						}
@@ -506,7 +436,7 @@
 							"variable": [
 								{
 									"key": "userId",
-									"value": "134"
+									"value": "136"
 								}
 							]
 						}
@@ -574,11 +504,11 @@
 							"variable": [
 								{
 									"key": "userId",
-									"value": "134"
+									"value": "136"
 								},
 								{
 									"key": "eventId",
-									"value": "105"
+									"value": "108"
 								}
 							]
 						}
@@ -667,11 +597,11 @@
 							"variable": [
 								{
 									"key": "userId",
-									"value": "134"
+									"value": "136"
 								},
 								{
 									"key": "eventId",
-									"value": "103"
+									"value": "106"
 								}
 							]
 						}
@@ -755,11 +685,11 @@
 							"variable": [
 								{
 									"key": "userId",
-									"value": "136"
+									"value": "137"
 								},
 								{
 									"key": "eventId",
-									"value": "103"
+									"value": "106"
 								}
 							]
 						}
@@ -843,11 +773,11 @@
 							"variable": [
 								{
 									"key": "userId",
-									"value": "134"
+									"value": "136"
 								},
 								{
 									"key": "eventId",
-									"value": "103"
+									"value": "106"
 								}
 							]
 						}
@@ -911,11 +841,11 @@
 							"variable": [
 								{
 									"key": "userId",
-									"value": "134"
+									"value": "136"
 								},
 								{
 									"key": "eventId",
-									"value": "104"
+									"value": "107"
 								}
 							]
 						}
@@ -1000,11 +930,11 @@
 							"variable": [
 								{
 									"key": "userId",
-									"value": "134"
+									"value": "136"
 								},
 								{
 									"key": "eventId",
-									"value": "103"
+									"value": "106"
 								},
 								{
 									"key": "commentId",
@@ -1074,11 +1004,11 @@
 							"variable": [
 								{
 									"key": "userId",
-									"value": "134"
+									"value": "136"
 								},
 								{
 									"key": "eventId",
-									"value": "103"
+									"value": "106"
 								},
 								{
 									"key": "commentId",
@@ -1148,11 +1078,11 @@
 							"variable": [
 								{
 									"key": "userId",
-									"value": "134"
+									"value": "555"
 								},
 								{
 									"key": "eventId",
-									"value": "555"
+									"value": "106"
 								},
 								{
 									"key": "commentId",
@@ -1222,7 +1152,7 @@
 							"variable": [
 								{
 									"key": "userId",
-									"value": "134"
+									"value": "136"
 								},
 								{
 									"key": "eventId",
@@ -1296,11 +1226,11 @@
 							"variable": [
 								{
 									"key": "userId",
-									"value": "136"
+									"value": "100"
 								},
 								{
 									"key": "eventId",
-									"value": "104"
+									"value": "107"
 								},
 								{
 									"key": "commentId",
@@ -1350,7 +1280,7 @@
 							"variable": [
 								{
 									"key": "eventId",
-									"value": "103"
+									"value": "106"
 								}
 							]
 						}
@@ -1391,7 +1321,7 @@
 							"variable": [
 								{
 									"key": "eventId",
-									"value": "103"
+									"value": "106"
 								},
 								{
 									"key": "commentId",
@@ -1443,11 +1373,11 @@
 							"variable": [
 								{
 									"key": "userId",
-									"value": "134"
+									"value": "136"
 								},
 								{
 									"key": "eventId",
-									"value": "103"
+									"value": "106"
 								}
 							]
 						}
@@ -1489,11 +1419,11 @@
 							"variable": [
 								{
 									"key": "userId",
-									"value": "136"
+									"value": "100"
 								},
 								{
 									"key": "eventId",
-									"value": "103"
+									"value": "106"
 								},
 								{
 									"key": "commentId",
@@ -1539,7 +1469,7 @@
 							"variable": [
 								{
 									"key": "userId",
-									"value": "134"
+									"value": "136"
 								},
 								{
 									"key": "eventId",
@@ -1589,11 +1519,11 @@
 							"variable": [
 								{
 									"key": "userId",
-									"value": "134"
+									"value": "136"
 								},
 								{
 									"key": "eventId",
-									"value": "103"
+									"value": "106"
 								},
 								{
 									"key": "commentId",
@@ -1637,7 +1567,7 @@
 							"variable": [
 								{
 									"key": "eventId",
-									"value": "103"
+									"value": "106"
 								},
 								{
 									"key": "commentId",
