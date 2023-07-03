@@ -630,7 +630,7 @@
 									"pm.test(\"Test comment 'nameAuthor' field\", function () {",
 									"    var jsonData = pm.response.json();",
 									"    pm.expect(jsonData).to.have.property('nameAuthor');",
-									"    pm.expect(jsonData.nameAuthor, '\"nameAuthor\" must be \"Milana\"').to.eql('Milana');",
+									"    pm.expect(jsonData.nameAuthor, '\"nameAuthor\" must be \"Vladimir\"').to.eql('Vladimir');",
 									"});",
 									"pm.test(\"Test comment 'name' field\", function () {",
 									"    var jsonData = pm.response.json();",
