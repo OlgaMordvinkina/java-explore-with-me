@@ -11,6 +11,7 @@ import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import ru.practicum.main.category.exceptions.NotFoundCategoryException;
+import ru.practicum.main.comments.exceptions.NotFoundCommentException;
 import ru.practicum.main.compilation.exceptions.NotFoundCompilationException;
 import ru.practicum.main.event.exceptions.NotFoundEventException;
 import ru.practicum.main.exceptions.AccessException;
@@ -72,6 +73,18 @@ public class RestResponseEntityExceptionHandler {
 
     @ExceptionHandler(NotFoundEventException.class)
     protected ResponseEntity<Object> handleConflict(NotFoundEventException ex) throws JsonProcessingException {
+        ApiError response = ApiError.builder()
+                .status(HttpStatus.NOT_FOUND.name())
+                .reason(REQUIRED_OBJECT_WAS_NOT_FOUND)
+                .message(getMessage(ex.getField(), ex.getId()))
+                .timestamp(getLocalDate())
+                .build();
+
+        return getResponseEntity(HttpStatus.NOT_FOUND, response);
+    }
+
+    @ExceptionHandler(NotFoundCommentException.class)
+    protected ResponseEntity<Object> handleConflict(NotFoundCommentException ex) throws JsonProcessingException {
         ApiError response = ApiError.builder()
                 .status(HttpStatus.NOT_FOUND.name())
                 .reason(REQUIRED_OBJECT_WAS_NOT_FOUND)
